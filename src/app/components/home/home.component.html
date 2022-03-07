@@ -1,7 +1,14 @@
-<div>
-    <button (click)="submitSearch()">search icon</button>
-    <input [(ngModel)]="searchInput" type="text">
-</div>
+<header>
+    <div>
+        <h1>WOOKIE <br> MOVIES</h1>
+    </div>
+    <div class="search_box">
+        <button (click)="submitSearch()">
+            <mat-icon>search</mat-icon>
+        </button>
+        <input [(ngModel)]="searchInput" type="text">
+    </div>
+</header>
 
 <div class="container">
     <div *ngFor="let g of genres;">
