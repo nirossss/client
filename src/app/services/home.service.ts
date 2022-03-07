@@ -15,7 +15,12 @@ const httpOptions = {
 export class HomeService {
 
   constructor(private http: HttpClient) { }
+
   getMovies(): Observable<any> {
     return this.http.get(`https://wookie.codesubmit.io/movies`, httpOptions);
+  }
+
+  getSearch(term): Observable<any> {
+    return this.http.get(`https://wookie.codesubmit.io/movies?q=${term}`, httpOptions);
   }
 }

@@ -9,20 +9,29 @@ export class HomeComponent implements OnInit {
   moviesData = []
   genres = []
   detailsId: string = ''
+  searchInput: string = ''
 
   constructor(private homeService: HomeService) { }
 
   ngOnInit(): void {
     this.homeService.getMovies().subscribe((data) => {
       this.moviesData = data.movies
-      console.log(this.moviesData);
+      this.createGenres()
+    });
+  }
 
-      this.genres = this.moviesData.map(m => {
-        return m.genres.join(',')
-      }).join(',').split(',').sort().filter((g, i, self) => {
-        return self.indexOf(g) === i
-      })
-      console.log(this.genres);
+  createGenres(): void {
+    this.genres = this.moviesData.map(m => {
+      return m.genres.join(',')
+    }).join(',').split(',').sort().filter((g, i, self) => {
+      return self.indexOf(g) === i
+    })
+  }
+
+  submitSearch(): void {
+    this.homeService.getSearch(this.searchInput).subscribe((data) => {
+      this.moviesData = data.movies
+      this.createGenres()
     });
   }
 }

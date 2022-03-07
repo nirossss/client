@@ -1,3 +1,8 @@
+<div>
+    <button (click)="submitSearch()">search icon</button>
+    <input [(ngModel)]="searchInput" type="text">
+</div>
+
 <div class="container">
     <div *ngFor="let g of genres;">
         <h2>{{g}} :</h2>
