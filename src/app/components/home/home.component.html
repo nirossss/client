@@ -1,1 +1,20 @@
-<p>home works!</p>
+<div class="container">
+    <div *ngFor="let g of genres;">
+        <h2>{{g}} :</h2>
+        <div class="row">
+            <div class="movie_card" *ngFor="let m of moviesData;">
+                <div (click)="this.detailsId = m.id + g" *ngIf="m.genres.includes(g)">
+                    <img src="{{m.poster}}" alt="">
+                    <div *ngIf="detailsId === m.id + g">
+                        <h4>{{m.title}}</h4>
+                        <p>Director: {{m.director}}</p>
+                        <p>Cast: {{m.cast.join(', ')}}</p>
+                        <p>IMDB rating: {{m.imdb_rating}}</p>
+                        <p>Overview: {{m.overview}}</p>
+                        <p>Length: {{m.length}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

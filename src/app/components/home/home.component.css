@@ -1,0 +1,17 @@
+.row {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.movie_card:hover {
+    cursor: pointer;
+    box-shadow: .1em .1em .15em .15em rgb(223, 223, 223);
+}
+
+.movie_card img{
+    padding: .5em;
+    width: 10em;
+    height: 16em;
+}
+

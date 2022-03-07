@@ -8,6 +8,8 @@ import { HomeService } from '../../services/home.service'
 export class HomeComponent implements OnInit {
   moviesData = []
   genres = []
+  detailsId: string = ''
+
   constructor(private homeService: HomeService) { }
 
   ngOnInit(): void {
@@ -21,9 +23,6 @@ export class HomeComponent implements OnInit {
         return self.indexOf(g) === i
       })
       console.log(this.genres);
-
-
     });
   }
-
 }
